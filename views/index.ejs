@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ข้อมูลสภาพอากาศ</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f0f2f5;
+      color: #1c1e21;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .search-container {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .search-input {
+      padding: 12px 15px;
+      font-size: 1em;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+      width: 60%;
+      max-width: 400px;
+      transition: box-shadow 0.2s;
+    }
+    .search-input:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.3);
+    }
+    .search-button {
+      padding: 12px 20px;
+      border-radius: 20px;
+      border: none;
+      background-color: #1877f2;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    .card h3 {
+      margin: 0;
+      font-size: 1.4em;
+    }
+    .card p {
+      margin: 8px 0;
+      font-size: 1.1em;
+      color: #333;
+    }
+    .card small {
+      color: #606770;
+      font-size: 0.9em;
+      display: block;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="search-container">
+      <form action="/" method="GET">
+        <input type="text" name="q" placeholder="ค้นหาจังหวัด..." class="search-input" value="<%= typeof query !== 'undefined' ? query : '' %>">
+        <button type="submit" class="search-button">🔍 ค้นหา</button>
+      </form>
+    </div>
+    <h1>🌤️ ข้อมูลสภาพอากาศล่าสุด</h1>
+    <% regions.forEach(region => { %>
+      <h2><%= region._id %></h2>
+      <% region.provinces.forEach(p => { %>
+      <div class="card">
+        <div class="card-header">
+          <img src="https://openweathermap.org/img/wn/<%= p.icon %>@2x.png" alt="Weather icon" width="50" height="50">
+          <h3><%= p.city %></h3>
+        </div>
+        <p><strong>อุณหภูมิ:</strong> <%= p.temp.toFixed(1) %> °C</p>
+        <p><strong>ความชื้น:</strong> <%= p.humidity %> %</p>
+        <p><strong>สภาพอากาศ:</strong> <%= p.weather %></p>
+        <small>บันทึกเมื่อ: <%= new Date(p.timestamp).toLocaleString('th-TH') %></small>
+      </div>
+      <% }) %>
+    <% }) %>
+  </div>
+</body>
+</html>

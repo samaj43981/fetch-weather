@@ -1,0 +1,18 @@
+# Dependencies
+/node_modules
+
+# Environment variables
+# ควรเก็บไฟล์ .env.example ที่ไม่มีข้อมูลสำคัญไว้ใน repo แทน
+.env
+
+# Log files
+*.log
+npm-debug.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/

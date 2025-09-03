@@ -1,0 +1,97 @@
+const thaiProvinces = [
+    // ภาคเหนือ (Northern Thailand)
+    {"name": "Chiang Mai", "name_th": "เชียงใหม่", "lat": 18.7883, "lon": 98.9853, "region": "ภาคเหนือ"},
+    {"name": "Chiang Rai", "name_th": "เชียงราย", "lat": 19.9105, "lon": 99.8406, "region": "ภาคเหนือ"},
+    {"name": "Lampang", "name_th": "ลำปาง", "lat": 18.2928, "lon": 99.4908, "region": "ภาคเหนือ"},
+    {"name": "Lamphun", "name_th": "ลำพูน", "lat": 18.5797, "lon": 99.0103, "region": "ภาคเหนือ"},
+    {"name": "Mae Hong Son", "name_th": "แม่ฮ่องสอน", "lat": 19.3014, "lon": 97.9659, "region": "ภาคเหนือ"},
+    {"name": "Nan", "name_th": "น่าน", "lat": 18.7838, "lon": 100.7747, "region": "ภาคเหนือ"},
+    {"name": "Phayao", "name_th": "พะเยา", "lat": 19.1923, "lon": 99.8732, "region": "ภาคเหนือ"},
+    {"name": "Phrae", "name_th": "แพร่", "lat": 18.1447, "lon": 100.1409, "region": "ภาคเหนือ"},
+    {"name": "Uttaradit", "name_th": "อุตรดิตถ์", "lat": 17.6204, "lon": 100.0995, "region": "ภาคเหนือ"},
+
+    // ภาคตะวันออกเฉียงเหนือ (Northeastern Thailand/Isan)
+    {"name": "Kalasin", "name_th": "กาฬสินธุ์", "lat": 16.4322, "lon": 103.5063, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Khon Kaen", "name_th": "ขอนแก่น", "lat": 16.4419, "lon": 102.8359, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Nakhon Phanom", "name_th": "นครพนม", "lat": 17.4054, "lon": 104.7686, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Nakhon Ratchasima", "name_th": "นครราชสีมา", "lat": 14.9799, "lon": 102.0977, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Bueng Kan", "name_th": "บึงกาฬ", "lat": 18.3563, "lon": 103.6464, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Buriram", "name_th": "บุรีรัมย์", "lat": 14.993, "lon": 103.1028, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Maha Sarakham", "name_th": "มหาสารคาม", "lat": 16.1851, "lon": 103.2998, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Mukdahan", "name_th": "มุกดาหาร", "lat": 16.5446, "lon": 104.7233, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Yasothon", "name_th": "ยโสธร", "lat": 15.7881, "lon": 104.1452, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Roi Et", "name_th": "ร้อยเอ็ด", "lat": 16.0514, "lon": 103.6537, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Loei", "name_th": "เลย", "lat": 17.486, "lon": 101.7223, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Sisaket", "name_th": "ศรีสะเกษ", "lat": 15.1186, "lon": 104.3221, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Sakon Nakhon", "name_th": "สกลนคร", "lat": 17.1616, "lon": 104.1486, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Surin", "name_th": "สุรินทร์", "lat": 14.8818, "lon": 103.4933, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Nong Khai", "name_th": "หนองคาย", "lat": 17.8782, "lon": 102.7412, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Nong Bua Lam Phu", "name_th": "หนองบัวลำภู", "lat": 17.2042, "lon": 102.4304, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Amnat Charoen", "name_th": "อำนาจเจริญ", "lat": 15.8651, "lon": 104.6296, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Udon Thani", "name_th": "อุดรธานี", "lat": 17.4138, "lon": 102.7877, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Ubon Ratchathani", "name_th": "อุบลราชธานี", "lat": 15.2448, "lon": 104.8472, "region": "ภาคตะวันออกเฉียงเหนือ"},
+    {"name": "Chaiyaphum", "name_th": "ชัยภูมิ", "lat": 15.8067, "lon": 102.031, "region": "ภาคตะวันออกเฉียงเหนือ"},
+
+    // ภาคกลาง (Central Thailand)
+    {"name": "Bangkok", "name_th": "กรุงเทพมหานคร", "lat": 13.7563, "lon": 100.5018, "region": "ภาคกลาง"},
+    {"name": "Kamphaeng Phet", "name_th": "กำแพงเพชร", "lat": 16.4827, "lon": 99.5225, "region": "ภาคกลาง"},
+    {"name": "Chai Nat", "name_th": "ชัยนาท", "lat": 15.1851, "lon": 100.1251, "region": "ภาคกลาง"},
+    {"name": "Nakhon Nayok", "name_th": "นครนายก", "lat": 14.2069, "lon": 101.213, "region": "ภาคกลาง"},
+    {"name": "Nakhon Pathom", "name_th": "นครปฐม", "lat": 13.8199, "lon": 100.0449, "region": "ภาคกลาง"},
+    {"name": "Nakhon Sawan", "name_th": "นครสวรรค์", "lat": 15.6958, "lon": 100.1372, "region": "ภาคกลาง"},
+    {"name": "Nonthaburi", "name_th": "นนทบุรี", "lat": 13.8621, "lon": 100.5144, "region": "ภาคกลาง"},
+    {"name": "Pathum Thani", "name_th": "ปทุมธานี", "lat": 14.0208, "lon": 100.525, "region": "ภาคกลาง"},
+    {"name": "Phra Nakhon Si Ayutthaya", "name_th": "พระนครศรีอยุธยา", "lat": 14.3692, "lon": 100.5877, "region": "ภาคกลาง"},
+    {"name": "Phichit", "name_th": "พิจิตร", "lat": 16.439, "lon": 100.3491, "region": "ภาคกลาง"},
+    {"name": "Phitsanulok", "name_th": "พิษณุโลก", "lat": 16.811, "lon": 100.2559, "region": "ภาคกลาง"},
+    {"name": "Phetchabun", "name_th": "เพชรบูรณ์", "lat": 16.4193, "lon": 101.1603, "region": "ภาคกลาง"},
+    {"name": "Lopburi", "name_th": "ลพบุรี", "lat": 14.7995, "lon": 100.6533, "region": "ภาคกลาง"},
+    {"name": "Samut Prakan", "name_th": "สมุทรปราการ", "lat": 13.5991, "lon": 100.5998, "region": "ภาคกลาง"},
+    {"name": "Samut Songkhram", "name_th": "สมุทรสงคราม", "lat": 13.4096, "lon": 100.0023, "region": "ภาคกลาง"},
+    {"name": "Samut Sakhon", "name_th": "สมุทรสาคร", "lat": 13.5475, "lon": 100.2744, "region": "ภาคกลาง"},
+    {"name": "Sing Buri", "name_th": "สิงห์บุรี", "lat": 14.8937, "lon": 100.3967, "region": "ภาคกลาง"},
+    {"name": "Sukhothai", "name_th": "สุโขทัย", "lat": 17.0061, "lon": 99.823, "region": "ภาคกลาง"},
+    {"name": "Suphan Buri", "name_th": "สุพรรณบุรี", "lat": 14.4745, "lon": 100.1218, "region": "ภาคกลาง"},
+    {"name": "Ang Thong", "name_th": "อ่างทอง", "lat": 14.5896, "lon": 100.4549, "region": "ภาคกลาง"},
+    {"name": "Uthai Thani", "name_th": "อุทัยธานี", "lat": 15.3794, "lon": 100.0244, "region": "ภาคกลาง"},
+    {"name": "Tak", "name_th": "ตาก", "lat": 16.884, "lon": 99.126, "region": "ภาคกลาง"},
+
+    // ภาคตะวันออก (Eastern Thailand)
+    {"name": "Chanthaburi", "name_th": "จันทบุรี", "lat": 12.6107, "lon": 102.1038, "region": "ภาคตะวันออก"},
+    {"name": "Chachoengsao", "name_th": "ฉะเชิงเทรา", "lat": 13.6904, "lon": 101.0779, "region": "ภาคตะวันออก"},
+    {"name": "Chonburi", "name_th": "ชลบุรี", "lat": 13.3611, "lon": 100.9847, "region": "ภาคตะวันออก"},
+    {"name": "Trat", "name_th": "ตราด", "lat": 12.2436, "lon": 102.515, "region": "ภาคตะวันออก"},
+    {"name": "Prachin Buri", "name_th": "ปราจีนบุรี", "lat": 14.0459, "lon": 101.3675, "region": "ภาคตะวันออก"},
+    {"name": "Rayong", "name_th": "ระยอง", "lat": 12.6807, "lon": 101.2538, "region": "ภาคตะวันออก"},
+    {"name": "Sa Kaeo", "name_th": "สระแก้ว", "lat": 13.824, "lon": 102.0683, "region": "ภาคตะวันออก"},
+
+    // ภาคตะวันตก (Western Thailand)
+    {"name": "Kanchanaburi", "name_th": "กาญจนบุรี", "lat": 14.0227, "lon": 99.5328, "region": "ภาคตะวันตก"},
+    {"name": "Phetchaburi", "name_th": "เพชรบุรี", "lat": 13.1115, "lon": 99.9395, "region": "ภาคตะวันตก"},
+    {"name": "Prachuap Khiri Khan", "name_th": "ประจวบคีรีขันธ์", "lat": 11.8127, "lon": 99.7973, "region": "ภาคตะวันตก"},
+    {"name": "Ratchaburi", "name_th": "ราชบุรี", "lat": 13.5282, "lon": 99.8133, "region": "ภาคตะวันตก"},
+
+    // ภาคใต้ (Southern Thailand)
+    {"name": "Krabi", "name_th": "กระบี่", "lat": 8.0863, "lon": 98.9063, "region": "ภาคใต้"},
+    {"name": "Chumphon", "name_th": "ชุมพร", "lat": 10.493, "lon": 99.18, "region": "ภาคใต้"},
+    {"name": "Trang", "name_th": "ตรัง", "lat": 7.5563, "lon": 99.6114, "region": "ภาคใต้"},
+    {"name": "Nakhon Si Thammarat", "name_th": "นครศรีธรรมราช", "lat": 8.4304, "lon": 99.9631, "region": "ภาคใต้"},
+    {"name": "Narathiwat", "name_th": "นราธิวาส", "lat": 6.4254, "lon": 101.8253, "region": "ภาคใต้"},
+    {"name": "Pattani", "name_th": "ปัตตานี", "lat": 6.8687, "lon": 101.2502, "region": "ภาคใต้"},
+    {"name": "Phang Nga", "name_th": "พังงา", "lat": 8.4519, "lon": 98.5198, "region": "ภาคใต้"},
+    {"name": "Phatthalung", "name_th": "พัทลุง", "lat": 7.6167, "lon": 100.0737, "region": "ภาคใต้"},
+    {"name": "Phuket", "name_th": "ภูเก็ต", "lat": 7.8804, "lon": 98.3923, "region": "ภาคใต้"},
+    {"name": "Yala", "name_th": "ยะลา", "lat": 6.541, "lon": 101.2802, "region": "ภาคใต้"},
+    {"name": "Ranong", "name_th": "ระนอง", "lat": 9.9558, "lon": 98.6348, "region": "ภาคใต้"},
+    {"name": "Songkhla", "name_th": "สงขลา", "lat": 7.2057, "lon": 100.5951, "region": "ภาคใต้"},
+    {"name": "Satun", "name_th": "สตูล", "lat": 6.6238, "lon": 100.0673, "region": "ภาคใต้"},
+    {"name": "Surat Thani", "name_th": "สุราษฎร์ธานี", "lat": 9.1382, "lon": 99.3215, "region": "ภาคใต้"},
+
+    // เมืองท่องเที่ยวพิเศษ (Special Tourist Cities)
+    {"name": "Pattaya", "name_th": "พัทยา", "lat": 12.9236, "lon": 100.8825, "region": "ภาคตะวันออก"},
+    {"name": "Hua Hin", "name_th": "หัวหิน", "lat": 12.5706, "lon": 99.9576, "region": "ภาคตะวันตก"},
+    {"name": "Khao Yai", "name_th": "เขาใหญ่", "lat": 14.4297, "lon": 101.3717, "region": "ภาคกลาง"},
+];
+  
+  module.exports = thaiProvinces;
+  
