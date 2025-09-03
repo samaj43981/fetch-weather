@@ -5,10 +5,24 @@ const { MongoClient } = require('mongodb');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // ใช้ Port จาก Render หรือ 3000 ถ้าเป็น local
 
 const MONGO_URI = process.env.MONGO_URI;
 const client = new MongoClient(MONGO_URI);
+let db; // สร้างตัวแปร db ไว้ข้างนอก
+
+// ฟังก์ชันสำหรับเชื่อมต่อฐานข้อมูล
+async function connectDB() {
+  if (db) return; // ถ้าเชื่อมต่อแล้วให้ออกจากฟังก์ชัน
+  try {
+    await client.connect();
+    db = client.db("weatherdb");
+    console.log("✅ Connected to MongoDB");
+  } catch (err) {
+    console.error("❌ Failed to connect to MongoDB", err);
+    process.exit(1); // ออกจากโปรแกรมถ้าต่อ DB ไม่ได้
+  }
+}
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -17,8 +31,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', async (req, res) => {
   try {
     const searchQuery = req.query.q || '';
-    await client.connect();
-    const db = client.db("weatherdb");
     const collection = db.collection("records");
 
     // สร้างเงื่อนไขการค้นหา
@@ -59,6 +71,9 @@ app.get('/', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ Server running at http://localhost:${PORT}`);
+// เชื่อมต่อ DB ก่อนแล้วค่อยเปิดเซิร์ฟเวอร์
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`✅ Server running at http://localhost:${PORT}`);
+  });
 });
