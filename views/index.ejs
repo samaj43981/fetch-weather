@@ -102,7 +102,7 @@
         <p><strong>อุณหภูมิ:</strong> <%= p.temp.toFixed(1) %> °C</p>
         <p><strong>ความชื้น:</strong> <%= p.humidity %> %</p>
         <p><strong>สภาพอากาศ:</strong> <%= p.weather %></p>
-        <small>บันทึกเมื่อ: <%= new Date(p.timestamp).toLocaleString('th-TH') %></small>
+        <small>บันทึกเมื่อ: <%= p.formattedTimestamp %></small>
       </div>
       <% }) %>
     <% }) %>

@@ -2,6 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 const { MongoClient } = require('mongodb');
+const { formatInTimeZone } = require('date-fns-tz');
 const path = require('path');
 
 const app = express();
@@ -64,7 +65,17 @@ app.get('/', async (req, res) => {
 
     const regions = await collection.aggregate(pipeline).toArray();
 
-    res.render('index', { regions, query: searchQuery });
+    // แปลงเวลา timestamp ของแต่ละจังหวัดให้เป็นเวลาไทย
+    const timeZone = 'Asia/Bangkok';
+    const formatString = 'd/M/yyyy HH:mm:ss';
+
+    regions.forEach(region => {
+      region.provinces.forEach(province => {
+        province.formattedTimestamp = formatInTimeZone(province.timestamp, timeZone, formatString);
+      });
+    });
+
+    res.render('index', { regions, query: searchQuery, locale: 'th-TH' });
   } catch (err) {
     console.error(err);
     res.status(500).send("เกิดข้อผิดพลาด");
