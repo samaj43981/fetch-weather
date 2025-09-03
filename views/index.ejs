@@ -5,15 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ข้อมูลสภาพอากาศ</title>
   <link rel="stylesheet" href="/css/main.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1c1e21;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .search-container {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .search-input {
+      padding: 12px 15px;
+      font-size: 1em;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+      width: 60%;
+      max-width: 400px;
+      transition: box-shadow 0.2s;
+    }
+    .search-input:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.3);
+    }
+    .search-button {
+      padding: 12px 20px;
+      border-radius: 20px;
+      border: none;
+      background-color: #1877f2;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    .card h3 {
+      margin: 0;
+      font-size: 1.4em;
+    }
+    .card p {
+      margin: 8px 0;
+      font-size: 1.1em;
+      color: #333;
+    }
+    .card small {
+      color: #606770;
+      font-size: 0.9em;
+      display: block;
+      margin-top: 15px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <div class="search-container">
-      <form action="/" method="GET" id="search-form">
-        <div class="autocomplete-container">
-          <input type="text" name="q" placeholder="ค้นหาจังหวัดหรือภาค..." class="search-input" value="<%= typeof query !== 'undefined' ? query : '' %>" autocomplete="off">
-          <div id="suggestions-box" class="suggestions-list"></div>
-        </div>
+      <form action="/" method="GET">
+        <input type="text" name="q" placeholder="ค้นหาจังหวัด..." class="search-input" value="<%= typeof query !== 'undefined' ? query : '' %>">
         <button type="submit" class="search-button">🔍 ค้นหา</button>
       </form>
     </div>
@@ -34,80 +107,5 @@
       <% }) %>
     <% }) %>
   </div>
-
-  <script>
-    const searchInput = document.querySelector('.search-input');
-    const suggestionsBox = document.getElementById('suggestions-box');
-    const searchForm = document.getElementById('search-form');
-    let activeSuggestionIndex = -1;
-
-    // ฟังก์ชันสำหรับดึงและแสดงคำแนะนำ
-    async function showSuggestions() {
-      const query = searchInput.value;
-      if (query.length < 1) {
-        suggestionsBox.innerHTML = '';
-        suggestionsBox.style.display = 'none';
-        return;
-      }
-
-      try {
-        const response = await fetch(`/api/suggestions?q=${encodeURIComponent(query)}`);
-        const suggestions = await response.json();
-
-        if (suggestions.length > 0) {
-          suggestionsBox.innerHTML = suggestions.map(s => `<div class="suggestion-item">${s}</div>`).join('');
-          suggestionsBox.style.display = 'block';
-
-          // เพิ่ม event listener ให้กับแต่ละ item
-          document.querySelectorAll('.suggestion-item').forEach(item => {
-            item.addEventListener('click', () => {
-              searchInput.value = item.textContent;
-              suggestionsBox.innerHTML = '';
-              suggestionsBox.style.display = 'none';
-              searchForm.submit();
-            });
-          });
-        } else {
-          suggestionsBox.innerHTML = '';
-          suggestionsBox.style.display = 'none';
-        }
-      } catch (error) {
-        console.error('Failed to fetch suggestions:', error);
-      }
-    }
-
-    // ฟังก์ชันสำหรับซ่อนคำแนะนำเมื่อคลิกนอกพื้นที่
-    function hideSuggestions(e) {
-      if (!searchInput.contains(e.target)) {
-        suggestionsBox.innerHTML = '';
-        suggestionsBox.style.display = 'none';
-      }
-    }
-
-    // ฟังก์ชันสำหรับจัดการการกดปุ่มลูกศร
-    function handleKeyDown(e) {
-      const items = suggestionsBox.querySelectorAll('.suggestion-item');
-      if (items.length === 0) return;
-
-      // ลบคลาส active ออกจาก item เดิม
-      if (activeSuggestionIndex > -1) items[activeSuggestionIndex].classList.remove('active');
-
-      if (e.key === 'ArrowDown') {
-        activeSuggestionIndex = (activeSuggestionIndex + 1) % items.length;
-      } else if (e.key === 'ArrowUp') {
-        activeSuggestionIndex = (activeSuggestionIndex - 1 + items.length) % items.length;
-      } else if (e.key === 'Enter') {
-        e.preventDefault(); // ป้องกันการ submit form ปกติ
-        if (activeSuggestionIndex > -1) items[activeSuggestionIndex].click();
-        else searchForm.submit();
-      }
-      // เพิ่มคลาส active ให้ item ใหม่
-      if(items[activeSuggestionIndex]) items[activeSuggestionIndex].classList.add('active');
-    }
-
-    searchInput.addEventListener('input', showSuggestions);
-    searchInput.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('click', hideSuggestions);
-  </script>
 </body>
 </html>
