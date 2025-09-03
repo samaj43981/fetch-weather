@@ -1,0 +1,118 @@
+body {
+  /* ไล่เฉดสีจากฟ้าอ่อน (#87CEEB) ด้านบน ไปเป็นสีขาว (#FFFFFF) ด้านล่าง */
+  background-image: linear-gradient(to bottom, #87CEEB, #ffffff);
+  background-repeat: no-repeat; /* ไม่ต้องแสดงภาพพื้นหลังซ้ำ */
+  background-attachment: fixed; /* ทำให้พื้นหลังคงที่เมื่อเลื่อนหน้าเว็บ */
+  min-height: 100vh; /* กำหนดความสูงขั้นต่ำให้เต็มหน้าจอ */
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1c1e21;
+  margin: 0;
+  padding: 20px;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.search-container {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* --- Autocomplete Styles --- */
+.autocomplete-container {
+  position: relative;
+  display: inline-block;
+  width: 60%;
+  max-width: 400px;
+}
+.suggestions-list {
+  position: absolute;
+  border: 1px solid #ddd;
+  border-top: none;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-height: 250px;
+  overflow-y: auto;
+}
+.suggestion-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  text-align: left;
+}
+.suggestion-item:hover {
+  background-color: #e9ebee;
+}
+.suggestion-item.active {
+  background-color: #1877f2;
+  color: white;
+}
+/* --- End Autocomplete Styles --- */
+
+.search-input {
+  padding: 12px 15px;
+  font-size: 1em;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  width: 100%; /* ทำให้เต็มความกว้างของ autocomplete-container */
+  box-sizing: border-box; /* รวม padding และ border ใน width */
+  transition: box-shadow 0.2s;
+}
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.3);
+}
+.search-button {
+  padding: 12px 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #1877f2;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+.card {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card h3 {
+  margin: 0;
+  font-size: 1.4em;
+}
+.card p {
+  margin: 8px 0;
+  font-size: 1.1em;
+  color: #333;
+}
+.card small {
+  color: #606770;
+  font-size: 0.9em;
+  display: block;
+  margin-top: 15px;
+}

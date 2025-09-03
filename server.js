@@ -24,8 +24,11 @@ app.get('/', async (req, res) => {
     // สร้างเงื่อนไขการค้นหา
     const matchStage = {};
     if (searchQuery) {
-      // ใช้ regex เพื่อค้นหาแบบ case-insensitive และ partial match
-      matchStage.city = { $regex: searchQuery, $options: 'i' };
+      // ใช้ regex เพื่อค้นหาแบบ case-insensitive และ partial match ทั้งใน city และ region
+      matchStage.$or = [
+        { city: { $regex: searchQuery, $options: 'i' } },
+        { region: { $regex: searchQuery, $options: 'i' } }
+      ];
     }
 
     // 1. ดึงข้อมูลล่าสุดของแต่ละจังหวัด
