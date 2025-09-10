@@ -75,7 +75,22 @@ app.get('/', async (req, res) => {
       });
     });
 
-    res.render('index', { regions, query: searchQuery, locale: 'th-TH' });
+    // --- เพิ่มส่วนนี้: ดึงข้อมูลจาก Sensor ---
+    const sensorDb = client.db('test');
+    const sensorCollection = sensorDb.collection('sensors');
+    const sensorData = await sensorCollection
+      .find({})
+      .sort({ timestamp: -1 }) // ดึงข้อมูลล่าสุดก่อน
+      .limit(10) // แสดงผล 10 รายการล่าสุด
+      .toArray();
+
+    // แปลงเวลา timestamp ของ sensor
+    sensorData.forEach(sensor => {
+      sensor.formattedTimestamp = formatInTimeZone(sensor.timestamp, timeZone, formatString);
+    });
+    // --- จบส่วนที่เพิ่ม ---
+
+    res.render('index', { regions, sensorData, query: searchQuery, locale: 'th-TH' });
   } catch (err) {
     console.error(err);
     res.status(500).send("เกิดข้อผิดพลาด");
