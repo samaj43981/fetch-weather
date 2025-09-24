@@ -1,0 +1,2 @@
+source /home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/gdbinit/symbols
+source /home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/gdbinit/connect

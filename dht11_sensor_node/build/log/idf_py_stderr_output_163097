@@ -1,0 +1,8 @@
+Command: ninja flash
+CMake Error at /home/samaj/esp/esp-idf/components/esptool_py/run_serial_tool.cmake:67 (message):
+  
+  /home/samaj/.espressif/python_env/idf6.0_py3.12_env/bin/python;;/home/samaj/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32
+  failed.
+
+
+

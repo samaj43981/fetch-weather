@@ -1,0 +1,88 @@
+Command: ninja flash
+[1/11] Performing build step for 'bootloader'
+[1/1] cd /home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/bootloader && /home/samaj/.espressif/python_env/idf6.0_py3.12_env/bin/python /home/samaj/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/bootloader/bootloader.bin
+Bootloader binary size 0x6680 bytes. 0x980 bytes (8%) free.
+[2/11] No install step for 'bootloader'
+[3/11] Completed 'bootloader'
+[4/11] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/dht11_sensor_node.c.obj
+[5/11] Linking C static library esp-idf/main/libmain.a
+[6/11] Generating esp-idf/esp_system/ld/sections.ld
+[7/11] Building C object CMakeFiles/dht11_sensor_node.elf.dir/project_elf_src_esp32.c.obj
+[8/11] Linking CXX executable dht11_sensor_node.elf
+[9/11] Generating binary image from built executable
+esptool.py v4.10.0
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated /home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/dht11_sensor_node.bin
+[10/11] cd /home/samaj/Downloads/fetch-weather/dht11_sensor_node/build && /home/samaj/.espressif/python_env/idf6.0_py3.12_env/bin/python /home/samaj/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/partition_table/partition-table.bin /home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/dht11_sensor_node.bin
+dht11_sensor_node.bin binary size 0xd7e40 bytes. Smallest app partition is 0x100000 bytes. 0x281c0 bytes (16%) free.
+[10/11] Running utility command for flash
+esptool.py --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 dht11_sensor_node.bin
+esptool.py v4.10.0
+Serial port /dev/ttyUSB0
+Connecting.......
+Chip is ESP32-D0WD-V3 (revision v3.0)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 94:b5:55:f6:f5:90
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Flash will be erased from 0x00010000 to 0x000e7fff...
+SHA digest in image updated
+Compressed 26240 bytes to 16586...
+Writing at 0x00001000... (50 %)
+Writing at 0x00007570... (100 %)
+Wrote 26240 bytes (16586 compressed) at 0x00001000 in 0.9 seconds (effective 245.9 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 347.2 kbit/s)...
+Hash of data verified.
+Compressed 884288 bytes to 559351...
+Writing at 0x00010000... (2 %)
+Writing at 0x0001c243... (5 %)
+Writing at 0x00025c75... (8 %)
+Writing at 0x00030a6c... (11 %)
+Writing at 0x000362dc... (14 %)
+Writing at 0x0003c1b8... (17 %)
+Writing at 0x00041dee... (20 %)
+Writing at 0x00047b3e... (22 %)
+Writing at 0x0004d945... (25 %)
+Writing at 0x00053fe4... (28 %)
+Writing at 0x000597a9... (31 %)
+Writing at 0x0005ee9f... (34 %)
+Writing at 0x000642d2... (37 %)
+Writing at 0x00069eb3... (40 %)
+Writing at 0x0006f997... (42 %)
+Writing at 0x000751db... (45 %)
+Writing at 0x0007a8ef... (48 %)
+Writing at 0x00080400... (51 %)
+Writing at 0x000863f7... (54 %)
+Writing at 0x0008bd64... (57 %)
+Writing at 0x000919a5... (60 %)
+Writing at 0x000974f2... (62 %)
+Writing at 0x0009cf25... (65 %)
+Writing at 0x000a299b... (68 %)
+Writing at 0x000a85b0... (71 %)
+Writing at 0x000ae91b... (74 %)
+Writing at 0x000b4352... (77 %)
+Writing at 0x000b9ecb... (80 %)
+Writing at 0x000c2b95... (82 %)
+Writing at 0x000c9028... (85 %)
+Writing at 0x000cf130... (88 %)
+Writing at 0x000d6168... (91 %)
+Writing at 0x000dbd0b... (94 %)
+Writing at 0x000e16b6... (97 %)
+Writing at 0x000e6e15... (100 %)
+Wrote 884288 bytes (559351 compressed) at 0x00010000 in 13.0 seconds (effective 544.8 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

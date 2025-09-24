@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/CMakeFiles/bootloader
+/home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/CMakeFiles/bootloader.rule
+/home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/CMakeFiles/bootloader-complete.rule
+/home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

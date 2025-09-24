@@ -1,0 +1,77 @@
+Command: ninja flash
+[1/5] cd /home/samaj/Downloads/fetch-weather/dht11_sensor_node/build && /home/samaj/.espressif/python_env/idf6.0_py3.12_env/bin/python /home/samaj/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/partition_table/partition-table.bin /home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/dht11_sensor_node.bin
+dht11_sensor_node.bin binary size 0xd7e40 bytes. Smallest app partition is 0x100000 bytes. 0x281c0 bytes (16%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/bootloader && /home/samaj/.espressif/python_env/idf6.0_py3.12_env/bin/python /home/samaj/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/bootloader/bootloader.bin
+Bootloader binary size 0x6680 bytes. 0x980 bytes (8%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] Running utility command for flash
+esptool.py --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 dht11_sensor_node.bin
+esptool.py v4.10.0
+Serial port /dev/ttyUSB0
+Connecting....
+Chip is ESP32-D0WD-V3 (revision v3.0)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 94:b5:55:f6:f5:90
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Flash will be erased from 0x00010000 to 0x000e7fff...
+SHA digest in image updated
+Compressed 26240 bytes to 16586...
+Writing at 0x00001000... (50 %)
+Writing at 0x00007570... (100 %)
+Wrote 26240 bytes (16586 compressed) at 0x00001000 in 0.8 seconds (effective 255.7 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 352.3 kbit/s)...
+Hash of data verified.
+Compressed 884288 bytes to 559330...
+Writing at 0x00010000... (2 %)
+Writing at 0x0001c23a... (5 %)
+Writing at 0x00025c7c... (8 %)
+Writing at 0x00030a6e... (11 %)
+Writing at 0x000362e4... (14 %)
+Writing at 0x0003c1c0... (17 %)
+Writing at 0x00041dfa... (20 %)
+Writing at 0x00047b43... (22 %)
+Writing at 0x0004d950... (25 %)
+Writing at 0x00053ff7... (28 %)
+Writing at 0x000597b5... (31 %)
+Writing at 0x0005eea6... (34 %)
+Writing at 0x000642d9... (37 %)
+Writing at 0x00069ebb... (40 %)
+Writing at 0x0006f9a3... (42 %)
+Writing at 0x000751e4... (45 %)
+Writing at 0x0007a8f4... (48 %)
+Writing at 0x00080408... (51 %)
+Writing at 0x00086421... (54 %)
+Writing at 0x0008bd74... (57 %)
+Writing at 0x000919b6... (60 %)
+Writing at 0x00097504... (62 %)
+Writing at 0x0009cf36... (65 %)
+Writing at 0x000a29b4... (68 %)
+Writing at 0x000a85c2... (71 %)
+Writing at 0x000ae93a... (74 %)
+Writing at 0x000b4362... (77 %)
+Writing at 0x000b9ede... (80 %)
+Writing at 0x000c2bad... (82 %)
+Writing at 0x000c9047... (85 %)
+Writing at 0x000cf143... (88 %)
+Writing at 0x000d617f... (91 %)
+Writing at 0x000dbd26... (94 %)
+Writing at 0x000e16d2... (97 %)
+Writing at 0x000e6e30... (100 %)
+Wrote 884288 bytes (559330 compressed) at 0x00010000 in 13.0 seconds (effective 543.9 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

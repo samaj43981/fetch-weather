@@ -1,0 +1,18 @@
+dependencies:
+  idf:
+    source:
+      type: idf
+    version: 6.0.0
+  zorxx/dht:
+    component_hash: 6a5e699b15509d99b90352694e23beb6646855486eb3bafefd1d50058d474e98
+    dependencies: []
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.0.1
+direct_dependencies:
+- idf
+- zorxx/dht
+manifest_hash: de24d5f47a4414297a0f58e66cf15decb8421f91c4769a032d3f15230002b580
+target: esp32
+version: 2.0.0

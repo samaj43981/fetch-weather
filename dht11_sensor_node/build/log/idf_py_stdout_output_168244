@@ -1,0 +1,246 @@
+Command: /home/samaj/.espressif/python_env/idf6.0_py3.12_env/bin/python /home/samaj/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/dht11_sensor_node.elf /home/samaj/Downloads/fetch-weather/dht11_sensor_node/build/bootloader/bootloader.elf -m '/home/samaj/.espressif/python_env/idf6.0_py3.12_env/bin/python' '/home/samaj/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+ (583) wifi:wifi driver task: 3ffc07b0, prio:23, stack:6656, core=0
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6376
+load:0x40078000,len:15864
+load:0x40080400,len:3908
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.0-dev-2039-g2044fba6e7 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Sep 25 2025 00:35:27[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v3.0[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1e084h (123012) map[0m
+[0;32mI (132) esp_image: segment 1: paddr=0002e0ac vaddr=3ffb0000 size=01f6ch (  8044) load[0m
+[0;32mI (135) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=a075ch (657244) map[0m
+[0;32mI (370) esp_image: segment 3: paddr=000d0784 vaddr=3ffb1f6c size=021d0h (  8656) load[0m
+[0;32mI (373) esp_image: segment 4: paddr=000d295c vaddr=40080000 size=15490h ( 87184) load[0m
+[0;32mI (409) esp_image: segment 5: paddr=000e7df4 vaddr=50000000 size=00024h (    36) load[0m
+[0;32mI (420) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (420) boot: Disabling RNG early entropy source...[0m
+[0;32mI (431) cpu_start: Multicore app[0m
+[0;32mI (439) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (439) cpu_start: Pro cpu start user code[0m
+[0;32mI (439) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (441) app_init: Application information:[0m
+[0;32mI (445) app_init: Project name:     dht11_sensor_node[0m
+[0;32mI (449) app_init: App version:      36d1008-dirty[0m
+[0;32mI (454) app_init: Compile time:     Sep 25 2025 00:36:58[0m
+[0;32mI (459) app_init: ELF file SHA256:  169106fc5...[0m
+[0;32mI (463) app_init: ESP-IDF:          v6.0-dev-2039-g2044fba6e7[0m
+[0;32mI (469) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (473) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (477) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (481) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (487) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (492) heap_init: At 3FFB8830 len 000277D0 (157 KiB): DRAM[0m
+[0;32mI (497) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (502) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (508) heap_init: At 40095490 len 0000AB70 (42 KiB): IRAM[0m
+[0;32mI (515) spi_flash: detected chip: generic[0m
+[0;32mI (517) spi_flash: flash io: dio[0m
+[0;33mW (520) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (533) main_task: Started on CPU0[0m
+[0;32mI (543) main_task: Calling app_main()[0m
+[0;32mI (583) wifi:wifi driver task: 3ffc07b0, prio:23, stack:6656, core=0[0m
+[0;32mI (593) wifi:wifi firmware version: df85326[0m
+[0;32mI (593) wifi:wifi certification version: v7.0[0m
+[0;32mI (593) wifi:config NVS flash: enabled[0m
+[0;32mI (593) wifi:config nano formatting: disabled[0m
+[0;32mI (603) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (603) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (613) wifi:Init management short buffer num: 32[0m
+[0;32mI (613) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (613) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (623) wifi:Init static rx buffer num: 10[0m
+[0;32mI (623) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (633) wifi_init: rx ba win: 6[0m
+[0;32mI (633) wifi_init: accept mbox: 6[0m
+[0;32mI (633) wifi_init: tcpip mbox: 32[0m
+[0;32mI (643) wifi_init: udp mbox: 6[0m
+[0;32mI (643) wifi_init: tcp mbox: 6[0m
+[0;32mI (643) wifi_init: tcp tx win: 5760[0m
+[0;32mI (643) wifi_init: tcp rx win: 5760[0m
+[0;32mI (653) wifi_init: tcp mss: 1440[0m
+[0;32mI (653) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (653) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (663) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (733) wifi:mode : sta (94:b5:55:f6:f5:90)[0m
+[0;32mI (743) wifi:enable tsf[0m
+[0;32mI (743) DHT11_SENSOR: wifi_init_sta finished.[0m
+[0;32mI (743) main_task: Returned from app_main()[0m
+[0;32mI (753) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (763) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (773) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (793) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (813) wifi:connected with James, aid = 3, channel 6, BW20, bssid = 2e:05:ed:0d:ea:9c[0m
+[0;32mI (813) wifi:security: WPA2-PSK, phy: bgn, rssi: -70[0m
+[0;32mI (813) wifi:pm start, type: 1[0m
+
+[0;32mI (813) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (833) wifi:<ba-add>idx:0 (ifx:0, 2e:05:ed:0d:ea:9c), tid:0, ssn:0, winSize:64[0m
+[0;32mI (883) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (883) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (1853) esp_netif_handlers: sta ip: 192.168.67.25, mask: 255.255.255.0, gw: 192.168.67.248[0m
+[0;32mI (1853) DHT11_SENSOR: got ip:192.168.67.25[0m
+[0;32mI (5763) DHT11_SENSOR: Humidity: 60.0%, Temperature: 31.0C[0m
+[0;32mI (7963) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (12983) DHT11_SENSOR: Humidity: 60.0%, Temperature: 31.0C[0m
+[0;32mI (13903) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (18923) DHT11_SENSOR: Humidity: 60.0%, Temperature: 31.0C[0m
+[0;32mI (20653) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (25683) DHT11_SENSOR: Humidity: 60.0%, Temperature: 31.0C[0m
+[0;32mI (26593) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+ (31623) dht: Initialization error, problem in phase 'C'
+[1;31mE (31623) DHT11_SENSOR: Failed to read data from DHT sensor: ESP_ERR_TIMEOUT[0m
+[1;31mE (36643) dht: Initialization error, problem in phase 'C'[0m
+[1;31mE (36643) DHT11_SENSOR: Failed to read data from DHT sensor: ESP_ERR_TIMEOUT[0m
+[1;31mE (41663) dht: Initialization error, problem in phase 'C'[0m
+[1;31mE (41663) DHT11_SENSOR: Failed to read data from DHT sensor: ESP_ERR_TIMEOUT[0m
+[1;31mE (46683) dht: Initialization error, problem in phase 'C'[0m
+[1;31mE (46683) DHT11_SENSOR: Failed to read data from DHT sensor: ESP_ERR_TIMEOUT[0m
+[1;31mE (51703) dht: Initialization error, problem in phase 'C'[0m
+[1;31mE (51703) DHT11_SENSOR: Failed to read data from DHT sensor: ESP_ERR_TIMEOUT[0m
+[0;32mI (56723) DHT11_SENSOR: Humidity: 60.0%, Temperature: 31.0C[0m
+[0;32mI (57113) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (62143) DHT11_SENSOR: Humidity: 64.0%, Temperature: 32.0C[0m
+[0;32mI (62853) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[1;31mE (67883) dht: Initialization error, problem in phase 'C'[0m
+[1;31mE (67883) DHT11_SENSOR: Failed to read data from DHT sensor: ESP_ERR_TIMEOUT[0m
+[0;32mI (72903) DHT11_SENSOR: Humidity: 65.0%, Temperature: 32.0C[0m
+[0;32mI (73493) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (78523) DHT11_SENSOR: Humidity: 62.0%, Temperature: 32.0C[0m
+[0;32mI (80663) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (85683) DHT11_SENSOR: Humidity: 61.0%, Temperature: 32.0C[0m
+[0;32mI (85993) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (91013) DHT11_SENSOR: Humidity: 60.0%, Temperature: 32.0C[0m
+[0;32mI (91423) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (96443) DHT11_SENSOR: Humidity: 60.0%, Temperature: 31.0C[0m
+[0;32mI (97263) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (102293) DHT11_SENSOR: Humidity: 61.0%, Temperature: 31.0C[0m
+[0;32mI (102793) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (107813) DHT11_SENSOR: Humidity: 61.0%, Temperature: 31.0C[0m
+[0;32mI (108113) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (113143) DHT11_SENSOR: Humidity: 61.0%, Temperature: 31.0C[0m
+[0;32mI (114253) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (119273) DHT11_SENSOR: Humidity: 61.0%, Temperature: 31.0C[0m
+[0;32mI (120403) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (125423) DHT11_SENSOR: Humidity: 61.0%, Temperature: 31.0C[0m
+[0;32mI (126333) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (131363) DHT11_SENSOR: Humidity: 61.0%, Temperature: 31.0C[0m
+[0;32mI (131663) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (136693) DHT11_SENSOR: Humidity: 61.0%, Temperature: 31.0C[0m
+[0;32mI (137603) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (142623) DHT11_SENSOR: Humidity: 61.0%, Temperature: 31.0C[0m
+[0;32mI (143133) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (148153) DHT11_SENSOR: Humidity: 61.0%, Temperature: 31.0C[0m
+[0;32mI (148453) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (153483) DHT11_SENSOR: Humidity: 61.0%, Temperature: 31.0C[0m
+[0;32mI (153993) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (159013) DHT11_SENSOR: Humidity: 61.0%, Temperature: 31.0C[0m
+[0;32mI (159723) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (164753) DHT11_SENSOR: Humidity: 64.0%, Temperature: 31.0C[0m
+[0;32mI (165253) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (170283) DHT11_SENSOR: Humidity: 71.0%, Temperature: 31.0C[0m
+[0;32mI (172223) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (177243) DHT11_SENSOR: Humidity: 72.0%, Temperature: 32.0C[0m
+[0;32mI (178363) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (183393) DHT11_SENSOR: Humidity: 73.0%, Temperature: 32.0C[0m
+[0;32mI (184303) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[1;31mE (189323) dht: Initialization error, problem in phase 'C'[0m
+[1;31mE (189323) DHT11_SENSOR: Failed to read data from DHT sensor: ESP_ERR_TIMEOUT[0m
+[1;31mE (194343) dht: Initialization error, problem in phase 'C'[0m
+[1;31mE (194343) DHT11_SENSOR: Failed to read data from DHT sensor: ESP_ERR_TIMEOUT[0m
+[0;32mI (199363) DHT11_SENSOR: Humidity: 62.0%, Temperature: 32.0C[0m
+[0;32mI (199663) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (204683) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (205183) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (210213) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (210933) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (215953) DHT11_SENSOR: Humidity: 76.0%, Temperature: 32.0C[0m
+[0;32mI (217683) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (222703) DHT11_SENSOR: Humidity: 87.0%, Temperature: 32.0C[0m
+[0;32mI (223823) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (228853) DHT11_SENSOR: Humidity: 68.0%, Temperature: 32.0C[0m
+[0;32mI (229563) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (234583) DHT11_SENSOR: Humidity: 62.0%, Temperature: 32.0C[0m
+[0;32mI (235503) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (240523) DHT11_SENSOR: Humidity: 60.0%, Temperature: 32.0C[0m
+[0;32mI (241443) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (246463) DHT11_SENSOR: Humidity: 60.0%, Temperature: 32.0C[0m
+[0;32mI (246763) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (251793) DHT11_SENSOR: Humidity: 60.0%, Temperature: 32.0C[0m
+[0;32mI (252093) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (257123) DHT11_SENSOR: Humidity: 60.0%, Temperature: 32.0C[0m
+[0;32mI (257833) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (262863) DHT11_SENSOR: Humidity: 60.0%, Temperature: 32.0C[0m
+[0;32mI (263153) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (268183) DHT11_SENSOR: Humidity: 60.0%, Temperature: 32.0C[0m
+[0;32mI (268893) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (273913) DHT11_SENSOR: Humidity: 60.0%, Temperature: 32.0C[0m
+[0;32mI (276253) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (281283) DHT11_SENSOR: Humidity: 60.0%, Temperature: 32.0C[0m
+[0;32mI (282413) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (287433) DHT11_SENSOR: Humidity: 60.0%, Temperature: 32.0C[0m
+[0;32mI (287933) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (292953) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (294893) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (299923) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (300223) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (305243) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (305863) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[1;31mE (310883) dht: Initialization error, problem in phase 'C'[0m
+[1;31mE (310883) DHT11_SENSOR: Failed to read data from DHT sensor: ESP_ERR_TIMEOUT[0m
+[0;32mI (315903) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (316193) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (321223) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (321523) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (326543) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (326843) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (331873) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (332273) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (337293) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (337703) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (342723) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (343023) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (348053) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (348763) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (353783) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (354703) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (359723) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (360023) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (365053) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (365753) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (370783) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (371903) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (376923) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (377633) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (382663) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (383163) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (388193) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (388493) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (393513) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (393823) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (398843) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (399863) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (404883) DHT11_SENSOR: Humidity: 59.0%, Temperature: 32.0C[0m
+[0;32mI (406103) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (411133) DHT11_SENSOR: Humidity: 79.0%, Temperature: 32.0C[0m
+[0;32mI (413683) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (418703) DHT11_SENSOR: Humidity: 92.0%, Temperature: 32.0C[0m
+[0;32mI (419833) DHT11_SENSOR: HTTP POST Status = 201, content_length = 31[0m
+[0;32mI (424853) DHT11_SENSOR: Humidity: 70.0%, Temperature: 32.0C[0m

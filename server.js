@@ -28,6 +28,7 @@ async function connectDB() {
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json()); // เพิ่มบรรทัดนี้เพื่อ parse JSON bodies
 
 app.get('/', async (req, res) => {
   try {
@@ -49,7 +50,7 @@ app.get('/', async (req, res) => {
       {
         $group: {
           _id: "$city",
-          doc: { $first: "$$ROOT" }
+          doc: { $first: "$ROOT" }
         }
       },
       { $replaceRoot: { newRoot: "$doc" } },
@@ -57,7 +58,7 @@ app.get('/', async (req, res) => {
       {
         $group: {
           _id: "$region",
-          provinces: { $push: "$$ROOT" }
+          provinces: { $push: "$ROOT" }
         }
       },
       { $sort: { _id: 1 } } // เรียงตามชื่อภาค
@@ -94,6 +95,34 @@ app.get('/', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send("เกิดข้อผิดพลาด");
+  }
+});
+
+// API endpoint for receiving sensor data from ESP32
+app.post('/api/sensors', async (req, res) => {
+  try {
+    const { temperature, humidity } = req.body;
+
+    if (temperature === undefined || humidity === undefined) {
+      return res.status(400).send('Missing temperature or humidity data');
+    }
+
+    const sensorDb = client.db('test');
+    const sensorCollection = sensorDb.collection('sensors');
+
+    const sensorRecord = {
+      temperature: parseFloat(temperature),
+      humidity: parseFloat(humidity),
+      timestamp: new Date(),
+    };
+
+    await sensorCollection.insertOne(sensorRecord);
+    console.log(`🌡️  Received sensor data: Temp=${temperature}°C, Hum=${humidity}%`);
+    res.status(201).send('Sensor data stored successfully');
+
+  } catch (err) {
+    console.error('❌ Failed to store sensor data:', err);
+    res.status(500).send('Error storing sensor data');
   }
 });
 
